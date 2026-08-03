@@ -1,0 +1,106 @@
+/* ==========================================================================
+   PLANTILLA DE ESTILOS CSS PARA TEXTO
+   Instrucciones: Elige y combina las propiedades que necesites para tu diseño.
+   ========================================================================== */
+
+.estiloTexto {
+  /* ------------------------------------------------------------------------
+     1. COLOR Y FONDO (Colores del texto e interactividad visual)
+     ------------------------------------------------------------------------ */
+  color: #2b2b2b; /* Color principal del texto (Hex, RGB, HSL o nombre) */
+  background-color: #f4f4f9; /* Color de fondo detrás del texto */
+
+  /* Gradientes en texto (Efecto avanzado: hace que el texto tenga un color degradado) */
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  -webkit-background-clip: text; /* Recorta el fondo con la forma de las letras */
+  -webkit-text-fill-color: transparent; /* Hace transparente el texto para ver el degradado */
+
+  /* ------------------------------------------------------------------------
+     2. FUENTE Y TIPOGRAFÍA (Familia, tamaño y peso)
+     ------------------------------------------------------------------------ */
+  font-family:
+    "Poppins", system-ui, sans-serif; /* Tipo de letra (con tipografías de respaldo/fallback) */
+  font-size: 1.2rem; /* Tamaño fijo (px, rem, em, %) */
+
+  /* Clamp: Tamaño responsivo fluido -> font-size: clamp(MÍNIMO, IDEAL, MÁXIMO) */
+  font-size: clamp(1rem, 2.5vw, 2rem);
+
+  font-weight: 600; /* Grosor de la letra: normal, bold, o valores numéricos (100 a 900) */
+  font-style: italic; /* Estilo de la fuente: normal, italic (cursiva), oblique */
+  font-variant: small-caps; /* Convierte las minúsculas en mayúsculas pequeñas (versalitas) */
+
+  /* ------------------------------------------------------------------------
+     3. ESPACIADO Y ALINEACIÓN (Diseño estructural del bloque de texto)
+     ------------------------------------------------------------------------ */
+  text-align: left; /* Alineación horizontal: left, center, right, justify */
+  line-height: 1.6; /* Altura de línea / interlineado (recomendado sin unidad: 1.4 a 1.8) */
+  letter-spacing: 1px; /* Espaciado entre caracteres/letras (tracking) */
+  word-spacing: 4px; /* Espaciado adicional entre palabras completas */
+  text-indent: 30px; /* Sangría en la primera línea del párrafo */
+
+  /* ------------------------------------------------------------------------
+     4. DECORACIÓN Y TRANSFORMACIÓN
+     ------------------------------------------------------------------------ */
+  text-transform: uppercase; /* Modifica el texto: uppercase (MAYÚSCULAS), lowercase (minúsculas), capitalize (Primera De Cada Palabra) */
+
+  /* LÍNEAS DE DECORACIÓN (Subrayados y tachados) */
+  text-decoration-line: underline; /* Posición: underline (subrayado), line-through (tachado), overline (línea superior) */
+  text-decoration-color: #ff6b6b; /* Color de la línea de decoración */
+  text-decoration-style: wavy; /* Estilo de línea: solid, double, dotted, dashed, wavy (ondulada) */
+  text-decoration-thickness: 2px; /* Grosor de la línea */
+  text-underline-offset: 4px; /* Distancia entre el texto y el subrayado */
+
+  /* ------------------------------------------------------------------------
+     5. SOMBRAS Y BORDES EN TEXTO
+     ------------------------------------------------------------------------ */
+  /* Sombras: text-shadow: [desplazamiento-X] [desplazamiento-Y] [desenfoque] [color] */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
+  /* Borde o contorno alrededor de las letras (Soportado por navegadores WebKit/Chromium) */
+  -webkit-text-stroke-width: 1px; /* Grosor del borde de cada letra */
+  -webkit-text-stroke-color: #000; /* Color del borde de cada letra */
+
+  /* ------------------------------------------------------------------------
+     6. AJUSTE DE TEXTO Y DESBORDAMIENTO (Manejo de textos largos)
+     ------------------------------------------------------------------------ */
+  white-space: normal; /* Manejo de espacios/saltos: normal, nowrap (todo en una sola línea), pre */
+  word-break: break-word; /* Fuerza el salto de línea si una palabra es demasiado larga */
+  hyphens: auto; /* Agrega guiones automáticamente al dividir palabras entre líneas */
+
+  /* Efecto de puntos suspensivos (...) para textos recortados en una sola línea */
+  overflow: hidden; /* Oculta lo que sobresale */
+  text-overflow: ellipsis; /* Muestra '...' si el texto es muy largo */
+  white-space: nowrap; /* Impide que el texto pase a la siguiente línea */
+
+  /* ------------------------------------------------------------------------
+     7. DIRECCIÓN Y ESCRITURA
+     ------------------------------------------------------------------------ */
+  writing-mode: horizontal-tb; /* Dirección del texto: horizontal-tb, vertical-rl (escritura vertical) */
+  direction: ltr; /* Orientación de lectura: ltr (izquierda a derecha), rtl (derecha a izquierda) */
+
+  /* ------------------------------------------------------------------------
+     8. SELECCIÓN DE TEXTO (Experiencia del usuario)
+     ------------------------------------------------------------------------ */
+  user-select: auto; /* Permite o bloquea la selección de texto con el mouse: auto, none, all */
+}
+
+/* --------------------------------------------------------------------------
+   BONUS: Cambiar el color cuando el estudiante SELECCIONA el texto con el mouse
+   -------------------------------------------------------------------------- */
+.estiloTexto::selection {
+  background-color: #ff6b6b; /* Fondo al resaltar texto */
+  color: #ffffff; /* Color de la letra al resaltar */
+}
+
+.estiloTextoResponsivo {
+  /* OPCIÓN A: Unidades relativas (rem) en lugar de píxeles (px) */
+  font-size: 1.1rem; /* Se adapta según la configuración base del usuario/navegador */
+
+  /* OPCIÓN B: La Magia de clamp() -> clamp(TAMAÑO_MÍNIMO, TAMAÑO_FLUIDO, TAMAÑO_MÁXIMO) */
+  /* En móviles medirá mínimo 1rem, crecerá según el ancho de pantalla (3.5vw), y en PC no pasará de 2.5rem */
+  font-size: clamp(1rem, 3.5vw, 2.5rem);
+
+  /* Buenas prácticas para lectura en móviles */
+  line-height: 1.5; /* Interlineado cómodo para no amontonar las líneas */
+  word-break: break-word; /* Rompe palabras ultra largas que puedan salirse de la pantalla */
+}
